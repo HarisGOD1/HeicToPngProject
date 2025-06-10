@@ -22,8 +22,8 @@ dependencies {
     implementation("io.micronaut.serde:micronaut-serde-jackson")
 
     implementation("org.bytedeco:javacv-platform:1.5.11")
-    implementation("org.bytedeco:ffmpeg:7.1-1.5.11")
-    implementation("org.bytedeco:opencv:4.10.0-1.5.11")
+    implementation("com.twelvemonkeys.imageio:imageio-core:3.12.0")
+//    implementation("com.github.gotson.nightmonkeys:imageio-heif:1.0.0")
 
     implementation("org.jetbrains.kotlin:kotlin-reflect:${kotlinVersion}")
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8:${kotlinVersion}")

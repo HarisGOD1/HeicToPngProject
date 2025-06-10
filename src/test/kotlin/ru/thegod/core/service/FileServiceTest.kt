@@ -15,17 +15,17 @@ class FileServiceTest {
 
     @Test
     fun `service loads existing jpg file from resources`(){
-        val jpgImage = fileService.loadJpgFile("BlackBalls.jpg")
+        val jpgBufferedImage = fileService.loadJpgFile("BlackBalls.jpg")
 
-        assertNotNull(jpgImage.data())
+        assertNotNull(jpgBufferedImage)
 
     }
 
     @Test
     fun `service loads existing heic file from resources`(){
-        val jpgImage = fileService.loadHeicFile("IMG_8497.HEIC")
+        val file = fileService.loadHeicFile("IMG_8497.HEIC")
 
-        assertNotNull(jpgImage.data())
+        assertNotNull(file)
 
     }
 }
