@@ -13,6 +13,10 @@ group = "ru.thegod"
 val kotlinVersion=project.properties.get("kotlinVersion")
 repositories {
     mavenCentral()
+    maven(url = "https://repository.aspose.com/java/repo/")
+    flatDir {
+        dirs("libs")
+    }
 }
 
 dependencies {
@@ -22,8 +26,13 @@ dependencies {
     implementation("io.micronaut.serde:micronaut-serde-jackson")
 
     implementation("org.bytedeco:javacv-platform:1.5.11")
-    implementation("com.twelvemonkeys.imageio:imageio-core:3.12.0")
-//    implementation("com.github.gotson.nightmonkeys:imageio-heif:1.0.0")
+    implementation("org.bytedeco:ffmpeg-platform-gpl:7.1-1.5.11")
+
+    implementation(files("libs/openize-heic-25.4.jar"))
+    implementation("com.aspose:aspose-imaging:25.4")
+    implementation("com.aspose:aspose-imaging-heic-adapter:25.4")
+
+//    implementation("org.libheiffx:LibHeifFX:1.2.3")
 
     implementation("org.jetbrains.kotlin:kotlin-reflect:${kotlinVersion}")
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8:${kotlinVersion}")
@@ -64,7 +73,6 @@ micronaut {
         replaceLogbackXml = true
     }
 }
-
 
 tasks.named<io.micronaut.gradle.docker.NativeImageDockerfile>("dockerfileNative") {
     jdkVersion = "21"

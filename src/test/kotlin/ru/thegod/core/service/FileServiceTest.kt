@@ -23,7 +23,7 @@ class FileServiceTest {
 
     @Test
     fun `service loads existing heic file from resources`(){
-        val file = fileService.loadHeicFile("IMG_8497.HEIC")
+        val file = fileService.loadHeicFile("chef-with-trumpet.heic")
 
         assertNotNull(file)
 

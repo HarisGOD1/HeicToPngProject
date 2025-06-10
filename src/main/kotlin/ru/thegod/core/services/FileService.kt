@@ -1,11 +1,10 @@
 package ru.thegod.core.services
 
 import jakarta.inject.Singleton
-import java.awt.image.BufferedImage
+import openize.heic.decoder.HeicImage
+import openize.io.IOFileStream
+import openize.io.IOMode
 import java.io.File
-import java.io.IOException
-import java.net.URL
-import javax.imageio.ImageIO
 
 
 @Singleton
@@ -14,17 +13,15 @@ class FileService {
 
 
     fun loadJpgFile(filename:String, pathToImages: String = defaultPath): File{
-        val pathToFile = "$pathToImages/jpg/$filename.jpg"
+        val pathToFile = "$pathToImages/jpg/$filename"
         val file:File = File(pathToFile)
         return file
     }
 
-    fun loadHeicFile(filename:String, pathToImages: String = defaultPath): File
+    fun loadHeicFile(filename:String, pathToImages: String = defaultPath): File?
     {
         val pathToFile = "$pathToImages/heic/$filename"
-        val url: URL? = javaClass.getResource(pathToFile)
-        if (url==null) throw IOException()
-        val file: File = File(url.getPath())
+        val file:File = File(pathToFile)
         return file
     }
 }
